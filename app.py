@@ -6,7 +6,7 @@ app=Flask(__name__)
 
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 UPLOAD_FOLDER = '/static/uploads/'

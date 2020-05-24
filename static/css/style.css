@@ -3,19 +3,36 @@
     padding: 0;
     box-sizing: border-box;
 }
-.row{
-    background-color: aqua;
+#intro{
+    background-color:#fff;
+    padding:5% 5% 0 5%;
+    color: #339783;
+    
+}
+#result{
+    background-color: #8ccbbe;
+    padding-bottom: 2%;
+    padding-top: 5%;
+    padding-left: 5%;
+    text-align: center;
+    color:#fff;
+}
+ li{
+     font-size: 1.5rem;
+ }
+
+h1{
+    padding-bottom: 2%;
+}
+.icon{
+    padding-bottom: 2%;
 }
 
-.inputfile {
-    font-size: 1.25em;
-    font-weight: 700;
-    color: white;
-    background-color: black;
-    display: inline-block;
+.extracted-text{
+    padding-bottom:2%;
+    font-size: 2rem;
 }
 
-.inputfile:focus,
-.inputfile:hover {
-    background-color: red;
+.input-image{
+    padding-bottom: 3%;
 }

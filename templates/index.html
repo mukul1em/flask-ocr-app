@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+     
  
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
       <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,500&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/dfa3696760.js" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
     </head>
     
     <body>
         <section id="intro">
             <div class="row">
-              <div class="col-6">
-                <img src="/static/12.jpg" height="500" width="500">
+              <div class="image-intro col-lg-6">
+                <img class="img" src="/static/ocr.svg" height="500" width="500">
               </div>
-              <div class="col-6">
-                <h3>OCR  TO TEXT</h3>
+              <div class="col-lg-6">
+                <h1>OCR Image To Text</h1>
                 <br>
-                <h4>Steps</h4>
+                <h2>Steps <i class="fas fa-paste fa-1x"></i></h2>
+                
+
+
+                <div class="toast-body"></div>
                 <ul>
-                  <li>click on the choose file. select image from your device</li>
-                  <li>click on upload</li>
-                  <li>then see the results</li>
+                  <li>click on the choose file. select image from your device</li><br>
+                  <li>click on upload</li><br>
+                  <li>then see the results</li><br>
                 </ul>
                 
               </div>
@@ -43,33 +50,52 @@
         
         
         </section>
-        <section>
+        <section id="result" >
           {% if msg %}
           <h1>{{ msg }}</h1>
           {% endif %}
           <div class="row">
             <div class="col-6">
               <h1>Upload new file</h1>
-              <form method=post enctype="multipart/form-data">
-                <input class="inputfile" type=file name=file>
+              <i class="fas fa-cloud-upload-alt fa-4x icon"></i>
+
+
+              
+              
+              <form class="md-form" method=post enctype="multipart/form-data">
+                <input style="filter: alpha(opacity=0); cursor: pointer;" type=file name=file>
                 <input type="submit" value=upload>
               </form>
             </div>
             <div class="col-6">
+              
               <h1>Result</h1>
+              
               {%if img_src %}
-                <img src="{{img_src}}">
+                <h6>Uploaded image</h6>
+                <img class="input-image shadow p-3 mb-5 bg-white rounded" src="{{img_src}}" height="200">
               {% endif %}
+              
 
               {% if extracted_text %}
-              <p> the extracted text from the above image is: <b>{{ extracted_text}}</b></p>
+              <p class='extracted-text'> The extracted text from the above image is:   <b>{{ extracted_text}}</b></p>
               {% else %}
-              <p>the extracte file will be displayed here </p>
+              <h5>The extracted text from the file will be displayed here </h5><br>
+              <i class="fas fa-arrow-alt-circle-down fa-2x"></i>
+
+
+
               {% endif %}
             </div>
 
             
           </div>
+          <br>
+          <br>
+          <p><i class="far fa-copyright"></i>
+            Mukul Rawat 2020
+
+          </p>
         </section>
         
         
